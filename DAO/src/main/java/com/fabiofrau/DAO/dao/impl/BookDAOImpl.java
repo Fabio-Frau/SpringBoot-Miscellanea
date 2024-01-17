@@ -1,7 +1,6 @@
 package com.fabiofrau.DAO.dao.impl;
 
 import com.fabiofrau.DAO.dao.BookDAO;
-import com.fabiofrau.DAO.domain.Author;
 import com.fabiofrau.DAO.domain.Book;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -30,7 +29,7 @@ public class BookDAOImpl implements BookDAO {
     }
 
     @Override
-    public Optional<Book> find(String isbn) {
+    public Optional<Book> findOne(String isbn) {
         List<Book> results = jdbcTemplate.query(
                 "SELECT isbn, title, author_id FROM books WHERE isbn = ? LIMIT 1",
                 new BookRowMapper(),
@@ -38,6 +37,13 @@ public class BookDAOImpl implements BookDAO {
         );
 
         return results.stream().findFirst();
+    }
+
+    @Override
+    public List<Book> find() {
+        return jdbcTemplate.query(
+                "SELECT isbn, title, author_id FROM books",
+                new BookRowMapper());
     }
 
     public static class BookRowMapper implements RowMapper<Book> {
