@@ -57,4 +57,23 @@ public class BookDAOImplTests {
                 ArgumentMatchers.<BookDAOImpl.BookRowMapper>any());
     }
 
+    @Test
+    public void testThatUpdateGeneratesTheCorrectSql() {
+        Book book = TestDataUtil.createTestBookA();
+        underTest.update("978-1-2345-6789-0", book);
+        verify(jdbcTemplate).update(
+                "UPDATE books SET isbn = ?, title = ?, author_id = ? WHERE isbn = ?",
+                "978-1-2345-6789-0", "The Shadow in the Attic", 1L, "978-1-2345-6789-0"
+        );
+    }
+
+    @Test
+    public void testThatDeleteGeneratesCorrectSql() {
+        underTest.delete("978-1-2345-6789-0");
+        verify(jdbcTemplate).update(
+                "DELETE FROM books WHERE isbn = ?",
+                "978-1-2345-6789-0"
+        );
+    }
+
 }
