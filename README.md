@@ -1,2 +1,2 @@
-# The-ULTIMATE-Guide-to-Spring-Boot-Spring-Boot-for-Beginners
-Practice repo for The ULTIMATE Guide to Spring Boot: Spring Boot for Beginners
+# Various exercise about SpringBoot
+Practice repo for SpringbBoot
