@@ -1,6 +1,8 @@
-package com.fabiofrau.Project3;
+package com.fabiofrau.Project3.student;
 
 
+import com.fabiofrau.Project3.school.School;
+import com.fabiofrau.Project3.studentProfile.StudentProfile;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

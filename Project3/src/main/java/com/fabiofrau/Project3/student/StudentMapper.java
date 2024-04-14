@@ -1,11 +1,17 @@
-package com.fabiofrau.Project3;
+package com.fabiofrau.Project3.student;
 
+import com.fabiofrau.Project3.school.School;
 import org.springframework.stereotype.Service;
 
 @Service
 public class StudentMapper {
 
     public Student toStudent(StudentDto dto) {
+
+        if(dto == null) {
+            throw new NullPointerException("The student dto should not be null");
+        }
+
         return Student.builder()
                 .firstName(dto.firstName())
                 .lastName(dto.lastName())

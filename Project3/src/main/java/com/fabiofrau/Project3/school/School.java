@@ -1,5 +1,6 @@
-package com.fabiofrau.Project3;
+package com.fabiofrau.Project3.school;
 
+import com.fabiofrau.Project3.student.Student;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -29,10 +30,6 @@ public class School {
     @JsonManagedReference
     private List<Student> students;
 
-    public SchoolDto toDto() {
-        return SchoolDto.builder()
-                .name(this.name)
-                .build();
-    }
+
 
 }

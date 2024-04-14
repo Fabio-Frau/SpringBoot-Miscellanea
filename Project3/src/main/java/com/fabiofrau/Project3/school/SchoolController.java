@@ -1,4 +1,4 @@
-package com.fabiofrau.Project3;
+package com.fabiofrau.Project3.school;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,16 +12,16 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SchoolController {
 
-    private final SchoolRepository schoolRepository;
+    private final SchoolService schoolService;
 
     @PostMapping("/schools")
     public SchoolDto create(@RequestBody SchoolDto school) {
-        return schoolRepository.save(school.toEntity()).toDto();
+        return schoolService.create(school);
     }
 
     @GetMapping("/schools")
     public List<SchoolDto> findAll() {
-        return schoolRepository.findAll().stream().map(School::toDto).toList();
+        return schoolService.findAll();
     }
 
 

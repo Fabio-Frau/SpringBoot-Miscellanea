@@ -1,4 +1,4 @@
-package com.fabiofrau.Project3;
+package com.fabiofrau.Project3.student;
 
 import lombok.Builder;
 

@@ -1,5 +1,6 @@
-package com.fabiofrau.Project3;
+package com.fabiofrau.Project3.studentProfile;
 
+import com.fabiofrau.Project3.student.Student;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
